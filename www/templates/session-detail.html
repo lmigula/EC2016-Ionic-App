@@ -8,6 +8,10 @@
   <ion-content class="padding">
     <div ng-bind-html="session.doc.text"></div>
     <p class="speaker">{{session.doc.speaker }}</p>
-    
+    <p>{{session.doc.session | timeFilter}}</p>
+    <button class="button button-calm icon-left ion-ios-star-outline" ng-if="!isBookmark()" ng-click="bookmark()">Merken</button>
+    <button class="button button-calm icon-left ion-ios-star"
+      ng-if="isBookmark()"
+     ng-click="unbookmark()">Nicht Merken</button>
   </ion-content>
 </ion-view>

@@ -20,7 +20,12 @@ angular.module('starter.controllers', [])
   var bookmarkString;
   var bookmarks;
   var updateData = function() {
-
+    bookmarkString = localStorage.bookmarks;
+    if (bookmarkString) {
+         bookmarks = bookmarkString.split(',')
+       }
+       var favList = Sessions.getFavs(bookmarks);
+       $scope.favList = favList;
   }
 
   $scope.$on('$ionicView.enter', function(e) {
@@ -28,7 +33,14 @@ angular.module('starter.controllers', [])
   });
 
   $scope.unbookmark = function(id) {
-
+    if (bookmarks) {
+          var idx = bookmarks.indexOf(id);
+          if (idx >= 0) {
+            bookmarks.splice(idx, 1);
+          }
+          localStorage.bookmarks = bookmarks;
+          updateData();
+        }
   }
 
 
@@ -37,7 +49,11 @@ angular.module('starter.controllers', [])
 .controller('SessionDetailCtrl', function($scope, $stateParams, Sessions) {
 
   $scope.isBookmark = function() {
-
+    var result = false
+        if (bookmarks) {
+          result = bookmarks.indexOf(id) >= 0;
+        }
+        return result;
   }
   var id = $stateParams.sessionId
   var detailSession = Sessions.get(id);
@@ -45,9 +61,11 @@ angular.module('starter.controllers', [])
   var bookmarkString;
   var bookmarks;
   var updateData = function() {
-
+    bookmarkString = localStorage.bookmarks;
+    if (bookmarkString) {
+      bookmarks = bookmarkString.split(',')
+    }
   };
-
   $scope.$on('$ionicView.enter', function(e) {
     updateData();
   });
