@@ -1,0 +1,44 @@
+/* Empty. Add your own CSS if you like */
+
+.speaker, .item p.speaker, a {
+  color: #df091d;
+  width: 100%;
+}
+ion-tabs.tabs-color-active-positive .tab-item.tab-item-active, ion-tabs.tabs-color-active-positive .tab-item.active, ion-tabs.tabs-color-active-positive .tab-item.activated {
+  color: #df091d;
+}
+.spaceBottom {
+  margin-bottom: 10px;
+}
+#logo img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+
+}
+
+#ecLogo{
+    max-height: 120px;
+    float: left;
+    margin: 0 10px;
+}
+
+.item-avatar, .item-avatar .item-content, .item-avatar-left, .item-avatar-left .item-content {
+  padding-left: 16px;
+}
+
+h2{
+  font-size: 25px;
+}
+.trash{
+  color: red;
+  font-size: 40px;
+}
+
+.padTop{
+    margin-top: 10px;
+}
+
+.padLeft{
+      margin-left: 10px;
+}

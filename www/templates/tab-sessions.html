@@ -1,0 +1,17 @@
+<ion-view view-title="Alle Sessions">
+  <ion-content class="padding">
+    <h2>Vorträge auf dem EntwicklerCamp 2016</h2>
+
+    <ion-list>
+      <div class="spaceBottom">
+        <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="session in sessionList | orderBy : ['doc.session','doc.track'] track by session.id" type="item-text-wrap" href="#/tab/sessions/{{session.id}}">
+
+          <b>{{session.doc.name}} - {{session.doc.track}}S{{session.doc.session}}</b>
+          <p class="speaker">{{session.doc.speaker}}</p>
+          <p>{{session.doc.session | timeFilter}}</p>
+          <i class="icon ion-chevron-right icon-accessory"></i>
+        </ion-item>
+      </div>
+    </ion-list>
+  </ion-content>
+</ion-view>
