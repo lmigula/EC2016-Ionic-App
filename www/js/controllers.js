@@ -3,15 +3,14 @@ angular.module('starter.controllers', [])
 .controller('SessionCtrl', function($scope, Sessions) {
 
   $scope.$on('$ionicView.enter', function(e) {
-  Sessions.all()
-    .then(function(sessions) {
-      if ($scope.sessionList !== sessions) {
-        $scope.sessionList = sessions;
-      }
+    Sessions.all()
+      .then(function(sessions) {
+        if ($scope.sessionList !== sessions) {
+          $scope.sessionList = sessions;
+        }
 
-
-    })
-});
+      })
+  });
 
 
 })
@@ -22,10 +21,10 @@ angular.module('starter.controllers', [])
   var updateData = function() {
     bookmarkString = localStorage.bookmarks;
     if (bookmarkString) {
-         bookmarks = bookmarkString.split(',')
-       }
-       var favList = Sessions.getFavs(bookmarks);
-       $scope.favList = favList;
+      bookmarks = bookmarkString.split(',')
+    }
+    var favList = Sessions.getFavs(bookmarks);
+    $scope.favList = favList;
   }
 
   $scope.$on('$ionicView.enter', function(e) {
@@ -34,13 +33,13 @@ angular.module('starter.controllers', [])
 
   $scope.unbookmark = function(id) {
     if (bookmarks) {
-          var idx = bookmarks.indexOf(id);
-          if (idx >= 0) {
-            bookmarks.splice(idx, 1);
-          }
-          localStorage.bookmarks = bookmarks;
-          updateData();
-        }
+      var idx = bookmarks.indexOf(id);
+      if (idx >= 0) {
+        bookmarks.splice(idx, 1);
+      }
+      localStorage.bookmarks = bookmarks;
+      updateData();
+    }
   }
 
 
@@ -50,10 +49,10 @@ angular.module('starter.controllers', [])
 
   $scope.isBookmark = function() {
     var result = false
-        if (bookmarks) {
-          result = bookmarks.indexOf(id) >= 0;
-        }
-        return result;
+    if (bookmarks) {
+      result = bookmarks.indexOf(id) >= 0;
+    }
+    return result;
   }
   var id = $stateParams.sessionId
   var detailSession = Sessions.get(id);
@@ -69,11 +68,6 @@ angular.module('starter.controllers', [])
   $scope.$on('$ionicView.enter', function(e) {
     updateData();
   });
-
-
-
-
-
 
 
   $scope.bookmark = function() {
